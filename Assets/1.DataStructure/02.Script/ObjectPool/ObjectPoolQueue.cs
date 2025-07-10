@@ -25,6 +25,9 @@ public class ObjectPoolQueue : MonoBehaviour
 
     public void EnqueueObject(GameObject newObj) //집어넣는 함수
     {
+        newObj.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
+        newObj.GetComponent<Rigidbody>().angularVelocity = Vector3.zero; //초기화 작업
+
         objQueue.Enqueue(newObj);
         newObj.SetActive(false); // 오브젝트가 작동되지 않도록 Active -> false
     }
