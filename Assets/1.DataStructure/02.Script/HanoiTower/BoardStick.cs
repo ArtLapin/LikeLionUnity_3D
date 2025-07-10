@@ -50,6 +50,7 @@ public class BoardStick : MonoBehaviour
         if (!CheckDonut(donut))
             return;
 
+        HanoiTower.moveCount++;
         HanoiTower.isSelected = false;
         HanoiTower.selectedDonut = null;
 
@@ -62,8 +63,14 @@ public class BoardStick : MonoBehaviour
 
     public GameObject PopDonut()
     {
-        GameObject donut = stickStack.Pop(); // Stack에서 GameObject를 꺼내는 기능
+        if (stickStack.Count > 0)
+        {
+            HanoiTower.currStick = this;
+            HanoiTower.isSelected = true;
+            GameObject donut = stickStack.Pop(); // Stack에서 GameObject를 꺼내는 기능
 
-        return donut; // 꺼낸 도넛을 반환
+            return donut; // 꺼낸 도넛을 반환
+        }
+        return null;
     }
 }
