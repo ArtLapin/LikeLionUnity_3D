@@ -71,6 +71,6 @@ public class BoardStick : MonoBehaviour
 
             return donut; // 꺼낸 도넛을 반환
         }
-        return null;
+        return null; // 기둥이 비어있으면 null 반환
     }
 }
